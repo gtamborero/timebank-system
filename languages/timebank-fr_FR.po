@@ -1,0 +1,550 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: TimeBank v1.581\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2015-10-11 00:08+0100\n"
+"Last-Translator: admin <gtamborero@iproject.cat>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Poedit 1.7.4\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2\n"
+"X-Textdomain-Support: yes\n"
+"Language: fr_FR\n"
+"X-Poedit-SearchPath-0: .\n"
+
+# @ timebank
+#: admin/edit_configuration.php:17
+msgid "TIME-BANK GENERAL CONFIGURATION"
+msgstr "BANQUE DE TEMPS - CONFIGURATION GENERALE"
+
+# @ timebank
+#: admin/edit_configuration.php:24
+msgid "Timebank Page PATH"
+msgstr "Lien vers la page Banque de Temps"
+
+# @ timebank
+#: admin/edit_configuration.php:25
+msgid "Absolute URL to your Timebank Page Path"
+msgstr "Lien absolu vers la page où se trouve le \"shortcode\""
+
+# @ timebank
+#: admin/edit_configuration.php:25
+msgid "Shortcode you have to insert into your page content:"
+msgstr "Shortcode a insérer dans le contenu de votre page:"
+
+# @ default
+#: admin/edit_configuration.php:27
+msgid "No existant users name"
+msgstr "Utilisateurs inexistants"
+
+# @ timebank
+#: admin/edit_configuration.php:28
+msgid "This name is printed if a Wordpress user is eliminated from the System"
+msgstr "Nom générique utilisé pour un utilisateur qui a été effacé du système"
+
+# @ timebank
+#: admin/edit_configuration.php:28
+msgid "Timebank stores exchange data of unexistant users for security / integrity reasons"
+msgstr "La Banque de Temps archive les échnages des utilisateurs disparus pour des raisons de sécurité et d'intégrité"
+
+# @ timebank
+#: admin/edit_configuration.php:36
+msgid "Default Max Limit currency"
+msgstr "Limite maximale du solde de compte"
+
+# @ timebank
+#: admin/edit_configuration.php:37 admin/edit_configuration.php:40
+msgid "Default exchange limit for new users"
+msgstr "Crédit attribuée par défaut aux nouveaux utilisateurs"
+
+# @ timebank
+#: admin/edit_configuration.php:39
+msgid "Default Min Limit currency"
+msgstr "Limite minimale du solde de compte"
+
+# @ timebank
+#: admin/edit_configuration.php:42
+msgid "Exchange Timeout"
+msgstr "Temps d'expiration pour un échange"
+
+# @ timebank
+#: admin/edit_configuration.php:43
+msgid "hours before an exchange Rejection occurs (will be working in v2)"
+msgstr "Nb d'heures avant de refuser un échange (fonctionne pour la version 2)"
+
+# @ timebank
+#: admin/edit_configuration.php:45
+msgid "Currency name:"
+msgstr "Nom de votre monnaie:"
+
+# @ timebank
+#: admin/edit_configuration.php:46
+msgid "You can use the currency name or alias you like (Examples: min, hours, €, $, tokens ... )"
+msgstr "Vous pouvez utiliser le nom que vous souhaitez pour votre monnaie (Exemples: Minutes, Heures, €, $, SEL, Jetons, ...)"
+
+# @ timebank
+#: admin/edit_configuration.php:50
+msgid "Send mail to Admin"
+msgstr "Envoyer email à l'Admin"
+
+# @ timebank
+#: admin/edit_configuration.php:50
+msgid "Yes"
+msgstr "Oui"
+
+# @ timebank
+#: admin/edit_configuration.php:50
+msgid "No"
+msgstr "Non"
+
+# @ timebank
+#: admin/edit_configuration.php:51
+msgid "Activate / deactivate send mail to admin on all exchange status"
+msgstr "Activer / désactiver l'envoi d'email à l'admin pour tous les échanges"
+
+# @ default
+#: admin/edit_configuration.php:51
+msgid "by default: allways send mail to admin"
+msgstr "Par défaut: toujours envoyer un email à l'admin"
+
+# @ default
+#: admin/edit_configuration.php:53
+msgid "Text mail"
+msgstr "Texte du message"
+
+# @ timebank
+#: admin/edit_configuration.php:54
+msgid "Configure as you like the mail text that will be send to all users every time an exchange occurs."
+msgstr "Configurez le texte du mail qui sera envoyé aux utilisateurs à chaque nouvel échange"
+
+# @ timebank
+#: admin/edit_configuration.php:55
+msgid "Be carefull with the \"variables\" / \"parameters\". If something goes wrong, copy and paste this original text:"
+msgstr "Attention aux  \"variables\" / \"parametres\". Si un problème survient, copiez/collez le texte original:"
+
+# @ timebank
+#: admin/edit_configuration.php:59 admin/edit_user.php:55
+msgid "SAVE DATA"
+msgstr "SAUVER"
+
+# @ timebank
+#: admin/edit_user.php:18
+msgid "Notice: User not modified"
+msgstr "Note: Utilisateur non modifié"
+
+# @ timebank
+#: admin/edit_user.php:33
+msgid "TIME-BANK EDIT USERS"
+msgstr "Modifier Utilisateur"
+
+# @ timebank
+#: admin/edit_user.php:41
+msgid "User name"
+msgstr "Nom d'utilisateur"
+
+# @ timebank
+#: admin/edit_user.php:42
+msgid "Max. Limit"
+msgstr "Limite maximale"
+
+# @ timebank
+#: admin/edit_user.php:43
+msgid "Min. Limit"
+msgstr "Limite minimale"
+
+# @ timebank
+#: admin/show_exchanges.php:29
+msgid "TIME-BANK EXCHANGES"
+msgstr "HISTORIQUE TimeBank"
+
+# @ timebank
+#: admin/show_exchanges.php:29
+msgid "SEARCH EXCHANGE BY USEE"
+msgstr "RECHERCHER ECHANGE PAR UTILISATEUR"
+
+# @ timebank
+#: admin/show_exchanges.php:30
+msgid "user name"
+msgstr "Nom d'utilisateur"
+
+# @ timebank
+#: admin/show_exchanges.php:30
+msgid "Search"
+msgstr "Chercher"
+
+# @ timebank
+#: admin/show_exchanges.php:32 user/exchanges_view.php:121 user/sidebar.php:17
+msgid "NEW EXCHANGE"
+msgstr "NOUVELLE TRANSACTION"
+
+# @ timebank
+#: common/mysql_functions.php:14 common/mysql_functions.php:72
+msgid "Seller doesn't exist or is not an active user"
+msgstr "Vendeur introuvable ou inactif"
+
+# @ timebank
+#: common/mysql_functions.php:20 common/mysql_functions.php:76
+msgid "Buyer doesn't exist or is not an active user"
+msgstr "Acheteur introuvable ou inactif"
+
+# @ timebank
+#: common/mysql_functions.php:26 common/mysql_functions.php:80
+msgid "You cannot exchange with yourself"
+msgstr "Echange impossible avec soi-même"
+
+# @ timebank
+#: common/mysql_functions.php:32 common/mysql_functions.php:84
+msgid "Seller limit overflow"
+msgstr "Dépassement de limite Vendeur"
+
+# @ timebank
+#: common/mysql_functions.php:38 common/mysql_functions.php:88
+msgid "Buyer limit overflow"
+msgstr "Dépassement de limite Acheteur"
+
+# @ timebank
+#: common/mysql_functions.php:49 common/mysql_functions.php:99
+msgid "Your transaction has been send"
+msgstr "Votre transaction a été envoyée"
+
+# @ timebank
+#: common/mysql_functions.php:61 common/mysql_functions.php:105
+msgid "Error: Your transaction has NOT been send"
+msgstr "Erreur: Votre transaction a échoué"
+
+# @ timebank
+#: common/mysql_functions.php:164
+msgid "The transaction has been Completed"
+msgstr "Transaction réussie"
+
+# @ timebank
+#: common/mysql_functions.php:171
+msgid "Error: Impossible Update. Try again later"
+msgstr "Erreurr: Mise à jour impossible. Essayez plus tard"
+
+# @ timebank
+#: common/mysql_functions.php:265
+msgid "Fatal error: Balance Account SET Failed"
+msgstr "Erreur: Le transfert sur le compte a échoué"
+
+# @ timebank
+#: common/mysql_functions.php:303 user/exchanges_view.php:63
+msgid "Created"
+msgstr "Créé"
+
+# @ timebank
+#: common/mysql_functions.php:309
+msgid "New Exchange Alert"
+msgstr "Notification Nouvel Echange"
+
+# @ timebank
+#: common/mysql_functions.php:311
+msgid "From: Timebank Team"
+msgstr "De: Equipe TimeBank"
+
+# @ timebank
+#: timebank.php:56 timebank.php:187
+msgid "TimeBank"
+msgstr "Banque de Temps"
+
+# @ timebank
+#: timebank.php:57
+msgid "New Exchange"
+msgstr "Nouvel Echange"
+
+# @ timebank
+#: timebank.php:58
+msgid "Users"
+msgstr "Utilisateurs"
+
+# @ timebank
+#: timebank.php:59
+msgid "Configuration"
+msgstr "Configuration"
+
+# @ timebank
+#: timebank.php:61
+msgid "Edit User"
+msgstr "Modifier Utilisateur"
+
+# @ timebank
+#: timebank.php:62
+msgid "Edit Exchange"
+msgstr "Modifier Echange"
+
+# @ default
+#: timebank.php:72 timebank.php:79 timebank.php:86 timebank.php:94
+#: timebank.php:101 timebank.php:109
+msgid "You do not have sufficient permissions to access this page."
+msgstr "Vous ne possédez pas les droits suffisants pour accéder à cette page"
+
+# @ timebank
+#: user/comment_transfer.php:5
+msgid "EXCHANGE RATING"
+msgstr "Appréciation"
+
+# @ timebank
+#: user/comment_transfer.php:23
+msgid "SEND"
+msgstr "ENVOYER"
+
+# @ timebank
+#: user/exchanges_view.php:50
+msgid "SEARCH USERS"
+msgstr "CHERCHER UTILISATEURS"
+
+# @ timebank
+#: user/exchanges_view.php:51
+msgid "SEARCH"
+msgstr "CHERCHER"
+
+# @ timebank
+#: user/exchanges_view.php:52
+msgid "RESET"
+msgstr "ANNULER"
+
+# @ timebank
+#: user/exchanges_view.php:59 user/exchanges_view.php:94
+msgid "Search results"
+msgstr "Résultats de recherche"
+
+# @ timebank
+#: user/exchanges_view.php:62 user/exchanges_view.php:107
+msgid "User"
+msgstr "Utilisateur"
+
+# @ timebank
+#: user/exchanges_view.php:64 user/exchanges_view.php:106 user/sidebar.php:24
+msgid "Balance"
+msgstr "Solde"
+
+# @ timebank
+#: user/exchanges_view.php:65 user/exchanges_view.php:108
+#: user/exchanges_view.php:143 user/exchanges_view.php:205
+msgid "Status"
+msgstr "Statut"
+
+# @ timebank
+#: user/exchanges_view.php:66
+msgid "Total sales"
+msgstr "Total Ventes"
+
+# @ timebank
+#: user/exchanges_view.php:67
+msgid "total buys"
+msgstr "Total Achats"
+
+# @ timebank
+#: user/exchanges_view.php:95
+msgid "User not found"
+msgstr "Utilisateur introuvable"
+
+# @ timebank
+#: user/exchanges_view.php:104
+msgid "TimeBank stats"
+msgstr "Statistiques"
+
+# @ timebank
+#: user/exchanges_view.php:107
+msgid "Max"
+msgstr "Max"
+
+# @ timebank
+#: user/exchanges_view.php:107
+msgid "Min"
+msgstr "Min"
+
+# @ timebank
+#: user/exchanges_view.php:109
+msgid "Totals Sells"
+msgstr "Total Ventes"
+
+# @ timebank
+#: user/exchanges_view.php:110 user/sidebar.php:26
+msgid "Total Buys"
+msgstr "Total Achats"
+
+# @ timebank
+#: user/exchanges_view.php:114
+msgid "You need to log to your Wordpress Account before using Timebank!"
+msgstr "Vous devez être connecté pour utiliser votre compte Banque de Temps"
+
+# @ timebank
+#: user/exchanges_view.php:135
+msgid "Buys"
+msgstr "Acheter"
+
+# @ timebank
+#: user/exchanges_view.php:137 user/exchanges_view.php:199
+msgid "Date"
+msgstr "Date"
+
+# @ timebank
+#: user/exchanges_view.php:138
+msgid "Seller"
+msgstr "Vendeur"
+
+# @ timebank
+#: user/exchanges_view.php:139 user/exchanges_view.php:201
+#: user/validate_transfer.php:10
+msgid "Concept"
+msgstr "Concept"
+
+# @ timebank
+#: user/comment_transfer.php:10 user/exchanges_view.php:141
+#: user/exchanges_view.php:203
+msgid "Rating"
+msgstr "Score"
+
+# @ timebank
+#: user/comment_transfer.php:9 user/exchanges_view.php:142
+#: user/exchanges_view.php:161 user/exchanges_view.php:204
+#: user/validate_transfer.php:32
+msgid "Comment"
+msgstr "Commentaire"
+
+# @ timebank
+#: user/exchanges_view.php:159 user/exchanges_view.php:220
+msgid "Accept / Reject"
+msgstr "Accepter / Refuser"
+
+# @ timebank
+#: user/exchanges_view.php:197
+msgid "Sales"
+msgstr "Ventes"
+
+# @ timebank
+#: user/exchanges_view.php:200
+msgid "Buyer"
+msgstr "Acheteur"
+
+# @ timebank
+#: user/new_exchange.php:7 user/new_exchange.php:15 user/new_exchange.php:26
+msgid "Request"
+msgstr "Demande"
+
+# @ timebank
+#: user/new_exchange.php:8 user/new_exchange.php:17 user/new_exchange.php:27
+msgid "Send"
+msgstr "Envoyer"
+
+# @ timebank
+#: user/new_exchange.php:15
+msgid "from"
+msgstr "de"
+
+# @ timebank
+#: user/new_exchange.php:17
+msgid "to"
+msgstr "a"
+
+# @ timebank
+#: user/new_exchange.php:20 user/validate_transfer.php:10
+msgid "Amount"
+msgstr "Montant"
+
+# @ timebank
+#: user/new_exchange.php:23
+msgid "Description"
+msgstr "Description"
+
+# @ timebank
+#: user/new_exchange.php:48 user/new_exchange.php:71
+msgid "Please enter a user name"
+msgstr "Entrez un nom d'utilisateur, SVP"
+
+# @ timebank
+#: user/new_exchange.php:60 user/new_exchange.php:83
+msgid "Please wait ..."
+msgstr "Veuillez patienter..."
+
+# @ timebank
+#: user/new_exchange.php:96
+msgid "Amount has to be set and positive integer"
+msgstr "Le montant doit être entier et positif"
+
+# @ timebank
+#: user/new_exchange.php:101
+msgid "Please enter description"
+msgstr "Entrez une description, SVP"
+
+# @ timebank
+#: user/sidebar.php:23
+msgid "Go to your Timebank"
+msgstr "Entrez dans la Banque de Temps"
+
+# @ timebank
+#: user/sidebar.php:25
+msgid "Total Sales"
+msgstr "Total Ventes"
+
+# @ timebank
+#: user/validate_transfer.php:6
+msgid "VALIDATE TIME REQUEST"
+msgstr "Valider la demande"
+
+# @ timebank
+#: user/validate_transfer.php:10
+msgid "From"
+msgstr "De"
+
+# @ timebank
+#: user/validate_transfer.php:11
+msgid "Accept"
+msgstr "Acepter"
+
+# @ timebank
+#: user/validate_transfer.php:11
+msgid "Reject"
+msgstr "Refuser"
+
+# @ timebank
+#: user/exchanges_view.php:161 user/exchanges_view.php:176
+#: user/exchanges_view.php:224 user/validate_transfer.php:32
+#: user/validate_transfer.php:34
+msgid "Accepted"
+msgstr "Accepté"
+
+# @ timebank
+#: user/exchanges_view.php:165 user/exchanges_view.php:180
+#: user/exchanges_view.php:228 user/validate_transfer.php:51
+msgid "Rejected"
+msgstr "Refusé"
+
+# @ timebank
+#: admin/edit_configuration.php:48
+msgid "Starting amount:"
+msgstr "Montant initial:"
+
+# @ timebank
+#: admin/edit_configuration.php:49
+msgid "The initial balance amount for every new user (It should be zero or a value near zero)"
+msgstr "Le montant initial attribué à chaque nouvel utilisateur (faible ou zéro)"
+
+# @ timebank
+#: user/exchanges_view.php:159 user/exchanges_view.php:174
+#: user/exchanges_view.php:220
+msgid "Pending"
+msgstr "En attente"
+
+# @ timebank
+#: user/exchanges_view.php:163 user/exchanges_view.php:178
+#: user/exchanges_view.php:226
+msgid "Completed"
+msgstr "Terminé"
+
+# @ timebank
+#: user/exchanges_view.php:167 user/exchanges_view.php:182
+#: user/exchanges_view.php:230
+msgid "Cancelled"
+msgstr "Annulé"
+
+# @ timebank
+#: common/mysql_functions.php:144
+msgid "The transaction has been"
+msgstr "La transaction a été"
