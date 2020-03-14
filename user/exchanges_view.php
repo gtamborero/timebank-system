@@ -59,14 +59,18 @@ $config = getConfiguration();
 		jQuery(document).ready(function(){
 			<?php /* AJAX SECURE NONCE */ $nonce = wp_create_nonce( 'list_exchanges' ); ?>
 				jQuery.ajax({
-						type: "post",url: "<?php echo admin_url( 'admin-ajax.php' ); ?>",
+						type: "post",
+						url: "<?php echo admin_url( 'admin-ajax.php' ); ?>",
+						async: true,
 						data: { action: 'list_given_exchanges', _ajax_nonce: '<?php echo $nonce; ?>', userId: <?php echo $userId; ?>, currency: '<?php echo $config->currency; ?>' },
 						success: function(html){      
 								jQuery("#tbGiven").html(html + "<br />");
 						}
 				}); 
 				jQuery.ajax({
-						type: "post",url: "<?php echo admin_url( 'admin-ajax.php' ); ?>",
+						type: "post",
+						url: "<?php echo admin_url( 'admin-ajax.php' ); ?>",
+						async: true,
 						data: { action: 'list_received_exchanges', _ajax_nonce: '<?php echo $nonce; ?>', userId: <?php echo $userId; ?>, currency: '<?php echo $config->currency; ?>' },
 						success: function(html){      
 								jQuery("#tbReceived").html(html + "<br />");

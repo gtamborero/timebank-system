@@ -50,7 +50,9 @@
 						return 0;
 					}				
 					if (jQuery.ajax({
-						type: "post",url: "<?php echo admin_url( 'admin-ajax.php' ); ?>",
+						type: "post",
+						url: "<?php echo admin_url( 'admin-ajax.php' ); ?>",
+						async: true,
 						data: { action: 'new_transfer', _ajax_nonce: '<?php echo $nonce; ?>', sellerUserId: jQuery( "#sellerUserId" ).val(), buyerUserName: jQuery( "#buyerUserName" ).val(), amount: jQuery( "#amount" ).val(), description: jQuery( "#description" ).val(), createdBy: jQuery( "#sellerUserId" ).val()  },
 						success: function(html){ 
 								jQuery("#result").html(html + "<br />").fadeOut().fadeIn();
@@ -73,7 +75,9 @@
 						return 0;
 					}
 					if (jQuery.ajax({
-						type: "post",url: "<?php echo admin_url( 'admin-ajax.php' ); ?>",
+						type: "post",
+						url: "<?php echo admin_url( 'admin-ajax.php' ); ?>",
+						async: true,
 						data: { action: 'new_transfer', _ajax_nonce: '<?php echo $nonce; ?>', sellerUserName: jQuery( "#sellerUserName" ).val(), buyerUserId: jQuery( "#buyerUserId" ).val(), amount: jQuery( "#amount" ).val(), description: jQuery( "#description" ).val(), createdBy: jQuery( "#buyerUserId" ).val()  },
 						success: function(html){ 
 								jQuery("#result").html(html + "<br />").fadeOut().fadeIn();

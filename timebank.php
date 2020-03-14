@@ -6,17 +6,17 @@ Plugin URI: http://www.time-bank.info/
 Description: The timebank-sharing system for your wordpress users! Read install documentation on www.time-bank.info. <br /> Support us at <a href="https://www.teaming.net/wordpresstime-bank-bancodeltiempo">www.teaming.net</a>
 Author: Guillermo Tamborero
 Domain Path: /languages
-Version: 1.60
+Version: 1.7
 Author URI: http://www.time-bank.info
 
 */
 define( 'TB_PLUGIN_DIR', WP_PLUGIN_DIR . '/' . dirname( plugin_basename( __FILE__ ) ) );
 define( 'TB_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
- 
+
 // INSTALL HOOK when plugin is activated
 register_activation_hook(__FILE__,'timebank_install');
 function timebank_install(){
-	include_once "admin/install.php"; 
+	include_once "admin/install.php";
 	jal_install();
 	jal_install_data();
 	timebankUserCreateLoop();
@@ -25,14 +25,14 @@ function timebank_install(){
 // UPDATE HOOK when plugin is updated / reactivated
 add_action( 'plugins_loaded', 'timebank_update' );
 function timebank_update(){
-	include_once "admin/install.php"; 
+	include_once "admin/install.php";
 	jal_install();
 }
 
 // UNINSTALL hook
 register_deactivation_hook(__FILE__,'timebank_uninstall');
 function timebank_uninstall(){
-	include_once "admin/install.php"; 
+	include_once "admin/install.php";
 	jal_uninstall();
 }
 
@@ -40,7 +40,7 @@ function timebank_uninstall(){
 add_action('activated_plugin','save_error');
 function save_error(){
 file_put_contents(plugin_dir_path( __FILE__ ). 'log_error_activation.txt', ob_get_contents());
-}	
+}
 
 // Create user on Timebank database when wordpress user creation
 add_action('user_register','timebankUserCreate');
@@ -48,19 +48,19 @@ function timebankUserCreate($user_id){
 	createUser($user_id);
 }
 
- 
+
 
 // ADMIN SIDEBAR BUTTONS:
 add_action( 'admin_menu', 'timebank_menu' );
 function timebank_menu() {
 	add_menu_page( __('TimeBank' , 'timebank'), 'TimeBank', 'manage_options', 'timebank', 'timebank_exchanges' );
-	add_submenu_page( 'timebank', __('New Exchange' , 'timebank'), 'New Exchange', 'manage_options', 'timebank_newexchange', 'timebank_newexchange'); 
-	add_submenu_page( 'timebank', __('Users' , 'timebank'), 'Users', 'manage_options', 'timebank_users', 'timebank_users');      
-	add_submenu_page( 'timebank', __('Configuration' , 'timebank'), 'Configuration', 'manage_options', 'timebank_options', 'timebank_options'); 
+	add_submenu_page( 'timebank', __('New Exchange' , 'timebank'), 'New Exchange', 'manage_options', 'timebank_newexchange', 'timebank_newexchange');
+	add_submenu_page( 'timebank', __('Users' , 'timebank'), 'Users', 'manage_options', 'timebank_users', 'timebank_users');
+	add_submenu_page( 'timebank', __('Configuration' , 'timebank'), 'Configuration', 'manage_options', 'timebank_options', 'timebank_options');
 	// Timebank edit user must be here with 'null' property to have access to the admin page without a menu button
-	add_submenu_page( 'null', __('Edit User' , 'timebank'), 'Edit User', 'manage_options', 'timebank_edituser', 'timebank_edituser'); 
-	add_submenu_page( 'null', __('Edit Exchange' , 'timebank'), 'Edit Exchange', 'manage_options', 'timebank_editexchange', 'timebank_editexchange'); 
-    
+	add_submenu_page( 'null', __('Edit User' , 'timebank'), 'Edit User', 'manage_options', 'timebank_edituser', 'timebank_edituser');
+	add_submenu_page( 'null', __('Edit Exchange' , 'timebank'), 'Edit Exchange', 'manage_options', 'timebank_editexchange', 'timebank_editexchange');
+
 	//Register CSS Admin Style
 	wp_register_style( 'timebank-style', plugins_url('css/adminstyle.css', __FILE__) );
     wp_enqueue_style( 'timebank-style' );
@@ -113,10 +113,12 @@ function timebank_options() {
 
 //USER FUNCTIONS (public)
 function timebank_user_exchanges_view(){
-	include_once "user/exchanges_view.php";
+  if (!is_admin()){
+	   include_once "user/exchanges_view.php";
+  }
 }
 
-//CSS STYLE FOR PUBLIC 
+//CSS STYLE FOR PUBLIC
 add_action( 'wp_enqueue_scripts', 'timebank_stylesheet' );
 function timebank_stylesheet(){
     wp_register_style( 'timebank-style', plugins_url('css/style.css', __FILE__) );
@@ -144,7 +146,7 @@ class TimeBankWidget extends WP_Widget
     $widget_ops = array('classname' => 'RandomPostWidget', 'description' => 'Timebank user access / options view' );
     parent::__construct( 'RandomPostWidget', 'TimeBank -> Options', $widget_ops );
   }
-	
+
   function form($instance){
     $instance = wp_parse_args( (array) $instance, array( 'title' => '' ) );
     $title = $instance['title'];
@@ -152,29 +154,37 @@ class TimeBankWidget extends WP_Widget
   <p><label for="<?php echo $this->get_field_id('title'); ?>">Title: <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo $title; ?>" /></label></p>
 <?php
   }
- 
+
   function update($new_instance, $old_instance){
     $instance = $old_instance;
     $instance['title'] = $new_instance['title'];
     return $instance;
   }
- 
+
   function widget($args, $instance){
     extract($args, EXTR_SKIP);
- 
+
     echo $before_widget;
     $title = empty($instance['title']) ? ' ' : apply_filters('widget_title', $instance['title']);
- 
+
     if (!empty($title))
       echo $before_title . $title . $after_title;;
- 
+
     // WIDGET PRINT
     include_once( plugin_dir_path( __FILE__ ) . 'user/sidebar.php');
- 
+
     echo $after_widget;
   }
 }
-add_action( 'widgets_init', create_function('', 'return register_widget("TimeBankWidget");') );
+add_action( 'widgets_init', function() {
+  return register_widget("TimeBankWidget");
+  }
+);
+
+$callback = function() {
+    echo str_replace('"', '\"', $section['desc']);
+};
+
 // SIDEBAR CREATION END
 
 //SHORT CODE CREATION
@@ -208,9 +218,9 @@ function timebank_exchange_view() {
     // AJAX FUNCTIONS
     include( plugin_dir_path( __FILE__ ) . 'common/constants.php');
     include( plugin_dir_path( __FILE__ ) . 'common/mysql_functions.php');
-    include( plugin_dir_path( __FILE__ ) . 'user/ajax.php'); 
-    
-    function new_transfer_ajax() {  
+    include( plugin_dir_path( __FILE__ ) . 'user/ajax.php');
+
+    function new_transfer_ajax() {
         ajax_new_transfer();
     }
     add_action( 'wp_ajax_new_transfer', 'new_transfer_ajax' );
@@ -225,17 +235,17 @@ function timebank_exchange_view() {
     }
     add_action( 'wp_ajax_reject_transfer', 'reject_transfer_ajax' );
 
-    function comment_transfer_ajax() { 
+    function comment_transfer_ajax() {
         ajax_comment_transfer();
     }
     add_action( 'wp_ajax_comment_transfer', 'comment_transfer_ajax' );
-	
-    function list_given_exchanges_ajax() { 
+
+    function list_given_exchanges_ajax() {
         ajax_list_given_exchanges();
     }
     add_action( 'wp_ajax_list_given_exchanges', 'list_given_exchanges_ajax' );
-	
-    function list_received_exchanges_ajax() { 
+
+    function list_received_exchanges_ajax() {
         ajax_list_received_exchanges();
     }
     add_action( 'wp_ajax_list_received_exchanges', 'list_received_exchanges_ajax' );
@@ -244,7 +254,7 @@ function timebank_exchange_view() {
 function add_themescript(){
     wp_enqueue_script('jquery');
     wp_enqueue_script('thickbox',null,array('jquery'));
-    wp_enqueue_style('thickbox.css', '/'.WPINC.'/js/thickbox/thickbox.css', null, '1.0');    
+    wp_enqueue_style('thickbox.css', '/'.WPINC.'/js/thickbox/thickbox.css', null, '1.0');
 }
 add_action('init','add_themescript');
 
@@ -252,8 +262,8 @@ add_action('init','add_themescript');
 // TRANSLATION
 add_action( 'plugins_loaded', 'timebank_load_textdomain' );
 function timebank_load_textdomain() {
- 
-  load_plugin_textdomain( 'timebank', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' ); 
+
+  load_plugin_textdomain( 'timebank', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
 }
 
 

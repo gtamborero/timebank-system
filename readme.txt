@@ -3,8 +3,8 @@ Contributors: iproject.cat
 Donate link: http://www.time-bank.info
 Tags: timebank, Wordpress
 Requires at least: 3.6
-Tested up to: 4.3.1
-Stable tag: 1.572
+Tested up to: 5.3.2
+Stable tag: 1.7
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -140,6 +140,9 @@ In the WordPress + BuddyPress demo you will find a better approach to a built-in
 = 1.60 =
 * Fix issue for compatibility with wordpress 4.4 (and PHP7): Notice: "The caller constructor method for Wp_widgets is deprecated"
 * Fixed other Notices
+
+= 1.7 =
+* Fixes for update to PHP 7.4 and Wordpress Gutenberg 5.3.2 
 
 == Upgrade Notice ==
 

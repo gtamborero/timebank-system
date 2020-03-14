@@ -203,6 +203,10 @@ function jal_uninstall() {
    global $wpdb;
    
    // DROP SUPPORT TABLES (not data)
+
+   // Provisional hasta resolver problema del foro wp insert
+   $table_name = $wpdb->prefix . "tbank_conf";
+   $wpdb->query("DROP TABLE IF EXISTS $table_name");
    
    $table_name = $wpdb->prefix . "tbank_exchange_denegationtype";
    $wpdb->query("DROP TABLE IF EXISTS $table_name");
