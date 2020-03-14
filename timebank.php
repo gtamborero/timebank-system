@@ -181,10 +181,6 @@ add_action( 'widgets_init', function() {
   }
 );
 
-$callback = function() {
-    echo str_replace('"', '\"', $section['desc']);
-};
-
 // SIDEBAR CREATION END
 
 //SHORT CODE CREATION
