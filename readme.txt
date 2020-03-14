@@ -8,7 +8,7 @@ Stable tag: 1.7
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-The Wordpress timebank System. Exchange time between wordpress users securely. 
+The Wordpress timebank System. Exchange time between wordpress users securely.
 
 == Description ==
 
@@ -16,10 +16,10 @@ Link info: http://www.time-bank.info
 
 WordPress Timebank System is a Wordpress plugin that creates an exchange system (minutes, hours, tokens, any currency) for all your Wordpress users.
 
-All registered user can see their balance on the sidebar, status and total transfers. 
+All registered user can see their balance on the sidebar, status and total transfers.
 
-By entering to the profile of any user you can see the list of his exchanges, the status of transfers, rating and comments of each exchange. 
-All users can rate and review the product or services. 
+By entering to the profile of any user you can see the list of his exchanges, the status of transfers, rating and comments of each exchange.
+All users can rate and review the product or services.
 You can create new transfers, accept or reject incoming transfers, rate and comment transfers that affects you.
 
 
@@ -39,7 +39,7 @@ Based on the functioning of credit cards but applied to mobile devices and compu
 
 Sidebar with information of user, statistics, etc.
 
-100% BuddyPress compatible
+100% BuddyPress & Ultimate Member compatible
 
 Automatic mailing system when exchanges are created, accepted, rejected
 
@@ -57,8 +57,8 @@ We also recommend to install the 5 plugins that you can find at http://time-bank
 
 
 == Frequently Asked Questions ==
- 
-The purpose of this timebank is to achieve an alternative and reliable exchange without money, but with time ;)
+
+The purpose of this timebank is to achieve an alternative and reliable exchange system between WP users.
 We supose that the admins of the timebank will never win time (or money).
 But, if the admins want to win time because of their tasks, they can create a “manager” user for the timebank.
 This user have exactly the same characteristics as the other users.
@@ -83,7 +83,7 @@ In the WordPress + BuddyPress demo you will find a better approach to a built-in
 == Changelog ==
 
 = 0.1 =
-* Starting! 
+* Starting!
 
 = 0.21 =
 * Little improvements for all themes compatibility
@@ -135,14 +135,14 @@ In the WordPress + BuddyPress demo you will find a better approach to a built-in
 * Timebank compatibility for WPMU.
 
 = 1.59 =
-* Timebank exchange view with AJAX. 
+* Timebank exchange view with AJAX.
 
 = 1.60 =
 * Fix issue for compatibility with wordpress 4.4 (and PHP7): Notice: "The caller constructor method for Wp_widgets is deprecated"
 * Fixed other Notices
 
 = 1.7 =
-* Fixes for update to PHP 7.4 and Wordpress Gutenberg 5.3.2 
+* Fixes for update to PHP 7.4 and Wordpress Gutenberg 5.3.2
 
 == Upgrade Notice ==
 
