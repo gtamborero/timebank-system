@@ -175,7 +175,6 @@ add_action( 'widgets_init', function() {
   return register_widget("TimeBankWidget");
   }
 );
-
 // SIDEBAR CREATION END
 
 //SHORT CODE CREATION
@@ -192,7 +191,6 @@ bp_core_new_nav_item( array(
     'default_subnav_slug' => 'timebank'
 ) );
 }
-
 
 // show feedback when 'Feedback’ tab is clicked
 function timebank_info() {
@@ -236,21 +234,10 @@ add_action( 'bp_template_content','timebank_user_exchanges_view' );
     }
     add_action( 'wp_ajax_list_received_exchanges', 'list_received_exchanges_ajax' );
 
-// ADD THICKBOX
-function add_themescript(){
-    wp_enqueue_script('jquery');
-    wp_enqueue_script('thickbox',null,array('jquery'));
-    wp_enqueue_style('thickbox.css', '/'.WPINC.'/js/thickbox/thickbox.css', null, '1.0');
-}
-add_action('init','add_themescript');
-
-
 // TRANSLATION
 add_action( 'plugins_loaded', 'timebank_load_textdomain' );
 function timebank_load_textdomain() {
-
   load_plugin_textdomain( 'timebank', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
 }
 
-
-?>
+include_once( plugin_dir_path( __FILE__ ) . 'blocks/timebank.php');
