@@ -6,7 +6,7 @@ Plugin URI: http://www.time-bank.info/
 Description: The timebank-sharing system for your wordpress users! Read install documentation on www.time-bank.info. <br /> Support us at <a href="https://www.teaming.net/wordpresstime-bank-bancodeltiempo">www.teaming.net</a>
 Author: Guillermo Tamborero
 Domain Path: /languages
-Version: 1.7
+Version: 1.70
 Author URI: http://www.time-bank.info
 
 */
@@ -14,13 +14,13 @@ define( 'TB_PLUGIN_DIR', WP_PLUGIN_DIR . '/' . dirname( plugin_basename( __FILE_
 define( 'TB_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 
 // INSTALL HOOK when plugin is activated
-register_activation_hook(__FILE__,'timebank_install');
 function timebank_install(){
 	include_once "admin/install.php";
 	jal_install();
 	jal_install_data();
 	timebankUserCreateLoop();
 }
+register_activation_hook( __FILE__ ,'timebank_install');
 
 // UPDATE HOOK when plugin is updated / reactivated
 add_action( 'plugins_loaded', 'timebank_update' );
@@ -30,7 +30,7 @@ function timebank_update(){
 }
 
 // UNINSTALL hook
-register_deactivation_hook(__FILE__,'timebank_uninstall');
+register_deactivation_hook( __FILE__ ,'timebank_uninstall');
 function timebank_uninstall(){
 	include_once "admin/install.php";
 	jal_uninstall();
@@ -48,8 +48,6 @@ function timebankUserCreate($user_id){
 	createUser($user_id);
 }
 
-
-
 // ADMIN SIDEBAR BUTTONS:
 add_action( 'admin_menu', 'timebank_menu' );
 function timebank_menu() {
@@ -66,48 +64,41 @@ function timebank_menu() {
     wp_enqueue_style( 'timebank-style' );
 }
 
+function userCanManageOptions(){
+  if ( !current_user_can( 'manage_options' ) )  {
+    wp_die( __( 'You do not have sufficient permissions to access this page.' ) );
+  }
+}
 //ADMIN SHOW EXCHANGES
 function timebank_exchanges() {
-	if ( !current_user_can( 'manage_options' ) )  {
-		wp_die( __( 'You do not have sufficient permissions to access this page.' ) );
-	}
+  userCanManageOptions();
 	include_once "admin/show_exchanges.php";
 }
 
 function timebank_editexchange() {
-	if ( !current_user_can( 'manage_options' ) )  {
-		wp_die( __( 'You do not have sufficient permissions to access this page.' ) );
-	}
-	include_once "admin/edit_exchange.php";
+	userCanManageOptions();
+  include_once "admin/edit_exchange.php";
 }
 
 function timebank_newexchange() {
-	if ( !current_user_can( 'manage_options' ) )  {
-		wp_die( __( 'You do not have sufficient permissions to access this page.' ) );
-	}
-	include_once "admin/new_exchange.php";
+	userCanManageOptions();
+  include_once "admin/new_exchange.php";
 }
 
 //ADMIN SHOW / EDIT USERS
 function timebank_users() {
-	if ( !current_user_can( 'manage_options' ) )  {
-		wp_die( __( 'You do not have sufficient permissions to access this page.' ) );
-	}
-	include_once "admin/show_users.php";
+	userCanManageOptions();
+  include_once "admin/show_users.php";
 }
 
 function timebank_edituser() {
-	if ( !current_user_can( 'manage_options' ) )  {
-		wp_die( __( 'You do not have sufficient permissions to access this page.' ) );
-	}
+  userCanManageOptions();
 	include_once "admin/edit_user.php";
 }
 
 //ADMIN GENERAL CONFIGURATION
 function timebank_options() {
-	if ( !current_user_can( 'manage_options' ) )  {
-		wp_die( __( 'You do not have sufficient permissions to access this page.' ) );
-	}
+  userCanManageOptions();
 	include_once "admin/edit_configuration.php";
 }
 
@@ -118,25 +109,29 @@ function timebank_user_exchanges_view(){
   }
 }
 
-//CSS STYLE FOR PUBLIC
-add_action( 'wp_enqueue_scripts', 'timebank_stylesheet' );
-function timebank_stylesheet(){
-    wp_register_style( 'timebank-style', plugins_url('css/style.css', __FILE__) );
-    wp_enqueue_style( 'timebank-style' );
-}
+if (!is_admin()){
 
-// Add RateIt hook for front-end (wp_head) and backend (admin_footer)
-add_action('wp_head', 'rateClass');
-add_action('admin_footer', 'rateClass');
-function rateClass() {
-	echo '
-	<!-- Add RateIt Plugin Jquery -->
-	<script type="text/javascript" src="';
-	echo plugins_url( 'js/rateit/src/jquery.rateit.js', __FILE__ );
-	echo '"></script>
-	<link rel="stylesheet" type="text/css" href="';
-	echo plugins_url( 'js/rateit/src/rateit.css', __FILE__ );
-	echo '" media="screen" />';
+    //CSS STYLE FOR PUBLIC
+    add_action( 'wp_enqueue_scripts', 'timebank_stylesheet' );
+    function timebank_stylesheet(){
+        wp_register_style( 'timebank-style', plugins_url('css/style.css', __FILE__) );
+        wp_enqueue_style( 'timebank-style' );
+    }
+
+    // Add RateIt hook for front-end (wp_head) and backend (admin_footer)
+    add_action('wp_head', 'rateClass');
+    add_action('admin_footer', 'rateClass');
+    function rateClass() {
+    	echo '
+    	<!-- Add RateIt Plugin Jquery -->
+    	<script type="text/javascript" src="';
+    	echo plugins_url( 'js/rateit/src/jquery.rateit.js', __FILE__ );
+    	echo '"></script>
+    	<link rel="stylesheet" type="text/css" href="';
+    	echo plugins_url( 'js/rateit/src/rateit.css', __FILE__ );
+    	echo '" media="screen" />';
+    }
+    
 }
 
 // SIDEBAR CREATION

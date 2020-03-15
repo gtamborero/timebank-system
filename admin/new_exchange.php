@@ -24,14 +24,6 @@ if ($_POST['option']=="edit"){
 <!-- TIMEBANK STYLE INIT -->
 <div class="timebank">
 
-		<?php
-		// PRINT NEW REQUEST BUTTON
-		//echo '<a href="#TB_inline?width=600&height=400&inlineId=showExchangeWindow" class="thickbox" style="padding: 8px; background-color: #ddd; float:right; margin-right:10px;">' . __('NEW EXCHANGE', 'timebank') . '</a>';
-
-		// INCLUDE NEW REQUEST html + js code
-		//include_once( plugin_dir_path( __FILE__ ) . '../user/new_exchange.php');
-		?>
-
 	<p style="font-size:20px;"><strong>TIME-BANK NEW EXCHANGE</strong></p>
 	<hr>
 
@@ -43,7 +35,7 @@ if ($_POST['option']=="edit"){
 		echo "<td>Seller:</td><td><input id=sellerUserName type=text name=sellername value=$_POST[sellername]></td><tr />";
 		echo "<td>Buyer:</td><td><input id=buyerUserName type=text name=buyername value=$_POST[buyername]></td><tr />";
 		echo "<td>Concept:</td><td><input type=text id=description name=description value=$_POST[description]></td><tr />";
-		echo "<td>Amount (" . $config->currency . ") :</td><td><input type=number step=5 min=0 max=1000 id=amount name=amount value=$_POST[amount]></td><tr />";	 			
+		echo "<td>Amount (" . $config->currency . ") :</td><td><input type=number step=5 min=0 max=1000 id=amount name=amount value=$_POST[amount]></td><tr />";
 		?>
 
 		<td colspan="2" style="background-color:#fff;">	<input id="ACCEPT" type="submit" value="INSERT DATA" style="float:right;" class="button" /></td>

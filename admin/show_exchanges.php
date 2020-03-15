@@ -1,4 +1,4 @@
-<!-- TIMEBANK STYLE INIT -->	
+<!-- TIMEBANK STYLE INIT -->
 <div class="timebank">
 
 <?php
@@ -10,11 +10,11 @@ include_once( plugin_dir_path( __FILE__ ) . '../common/includes.php');
 $username = "";
 
 //SHOW USERS TABLE
-if ($_POST['search']){ 
+if ($_POST['search']){
 	$username = $_POST['username'];
-	$result = exchangesView($username); 
+	$result = exchangesView($username);
 	}else{
-	$result = exchangesView(); 	
+	$result = exchangesView();
 	}
 if ($_POST['reset']) $result = exchangesView();
 
@@ -26,15 +26,15 @@ echo '<div class="wrap">';
 
 <form method="post">
 	<input type="hidden" name="page" value="timebank" />
-	<p style="font-size:20px;"><strong><?php _e('TIME-BANK EXCHANGES', 'timebank'); ?></strong></p> <strong><?php _e('SEARCH EXCHANGE BY USEE', 'timebank'); ?>:</strong> 
+	<p style="font-size:20px;"><strong><?php _e('TIME-BANK EXCHANGES', 'timebank'); ?></strong></p> <strong><?php _e('SEARCH EXCHANGE BY USEE', 'timebank'); ?>:</strong>
 	<input type="text" name="username" placeholder="<?php _e('user name', 'timebank'); ?>" width=20 value="<?php echo $username; ?>"> <input name="search" type="submit" value="<?php _e('Search', 'timebank'); ?>" />
 	<input name="reset" type="submit" value="RESET" />
-	<div style="float:right;" class="button"><a href="admin.php?page=timebank_newexchange"><?php _e('NEW EXCHANGE', 'timebank'); ?></a></div>
+	<div class="button"><a href="admin.php?page=timebank_newexchange"><?php _e('NEW EXCHANGE', 'timebank'); ?></a></div>
 </form>
 
 <?php
 	echo '<hr></div>';
-	
+
 	echo "
 	<table>
 	<th>id</th>
@@ -52,15 +52,15 @@ echo '<div class="wrap">';
 	<th>Comment</th>
 	<th></th>
 	<tr>";
-	
+
 	foreach ($result as $res) {
-	
+
 		echo "<td  style=\"background-color:#559; color:#fff;\">" . $res->exchangeid . "</td>";
 		echo "<td>" . $res->user_login . "</td>";
-		
+
 			//Get Buyer name by Id
 			$buyerName = userIdToUserName ($res->id_buyer);
-			
+
 		echo "<td>" . $buyerName . "</td>";
 		echo "<td>" . $res->datetime_created . "</td>";
 		echo "<td>" . $res->datetime_accepted . "</td>";
@@ -73,11 +73,11 @@ echo '<div class="wrap">';
 		echo "<td><div class=rateit data-rateit-value=" . $res->rating_value . " data-rateit-ispreset=true data-rateit-readonly=true></div></td>";
 		echo "<td>" . $res->rating_comment . "</td>";
 		echo "<td><a class=button href='admin.php?page=timebank_editexchange&id=" . $res->exchangeid . "'>EDIT</a></td>";
-		echo "<tr>";		 
+		echo "<tr>";
 	}
-	
+
 	echo "</table>";
 ?>
 
-<!-- TIMEBANK STYLE CLOSE -->	
+<!-- TIMEBANK STYLE CLOSE -->
 </div>

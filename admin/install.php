@@ -1,8 +1,8 @@
 <?php
 
-//FIRST INSTALL FILE 
+//FIRST INSTALL FILE
 //Here we set up the TIME BANK DATABASE
-	
+
 $jal_db_version = "1.33";
 $installed_ver = get_option( "jal_db_version" );
 //echo "VERS:" . $installed_ver ;
@@ -120,7 +120,7 @@ function jal_install() {
 );
 ";
 
-	
+
    require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
    dbDelta( $table1 );
    dbDelta( $table2 );
@@ -129,15 +129,15 @@ function jal_install() {
    dbDelta( $table5 );
    dbDelta( $table6 );
    dbDelta( $table7 );
-   dbDelta( $table8 ); 
- 
+   dbDelta( $table8 );
+
 update_option( "jal_db_version", $jal_db_version );
 }
 
 
 function jal_install_data() {
    global $wpdb;
-   
+
    // INSERT CONFIGURATION
    $id = "1";
    $default_anonymous = "(deleted user)";
@@ -147,7 +147,6 @@ function jal_install_data() {
    $exchange_timeout = "48";
    $starting_amount = "10";
    $admin_mail = "1";
-   $path_to_timebank = "http://your-site.com/your-timebank-page";
    $email_original_text = 'Hello!
 A new timebank transfer has been $status_name on your timebank $siteUrl
 
@@ -155,20 +154,20 @@ Concept: $data->concept
 Exchange: $data->amount minutes
 Exchange status: $status_name
 
-Buyer: $data->buyer_name , $data->buyer_email 
-Seller: $data->seller_name , $data->seller_email 
+Buyer: $data->buyer_name , $data->buyer_email
+Seller: $data->seller_name , $data->seller_email
 
-Date Creation: $data->datetime_created 
-Date Accept: " .  showIfSet($data->datetime_accepted) . " 
+Date Creation: $data->datetime_created
+Date Accept: " .  showIfSet($data->datetime_accepted) . "
 Date Rejected: " . showIfSet($data->datetime_denied) . "
 
 Please Accept or Reject the transfer as soon as possible on $siteUrl
 If you don\'t Accept within 48 hours the transfer will be automaticaly rejected.
 
 The $siteUrl Team.';
-   
+
    $table_name = $wpdb->prefix . "tbank_conf";
-   $rows_affected = $wpdb->insert( $table_name, array( 'id' => $id, 'default_anonymous' => $default_anonymous, 'default_min_limit' => $default_min_limit, 'default_max_limit' => $default_max_limit, 'exchange_timeout' => $exchange_timeout, 'currency' => $currency, 'starting_amount' => $starting_amount, 'admin_mail' => $admin_mail, 'email_original_text' => $email_original_text,  'email_text' => $email_original_text, 'path_to_timebank' => $path_to_timebank ) );
+   $rows_affected = $wpdb->insert( $table_name, array( 'id' => $id, 'default_anonymous' => $default_anonymous, 'default_min_limit' => $default_min_limit, 'default_max_limit' => $default_max_limit, 'exchange_timeout' => $exchange_timeout, 'currency' => $currency, 'starting_amount' => $starting_amount, 'admin_mail' => $admin_mail, 'email_original_text' => $email_original_text,  'email_text' => $email_original_text ) );
 
    // INSERT DENEGATION TYPE
    $table_name = $wpdb->prefix . "tbank_exchange_denegationtype";
@@ -187,36 +186,36 @@ The $siteUrl Team.';
 
 	// INSERT ALERT TYPE
    $table_name = $wpdb->prefix . "tbank_users_alerttype";
-   $rows_affected = $wpdb->insert( $table_name, array( 'id' => '1', 'description' => 'You have new transactions' ) );   
-   $rows_affected = $wpdb->insert( $table_name, array( 'id' => '2', 'description' => 'Please review your transactions' ) ); 
+   $rows_affected = $wpdb->insert( $table_name, array( 'id' => '1', 'description' => 'You have new transactions' ) );
+   $rows_affected = $wpdb->insert( $table_name, array( 'id' => '2', 'description' => 'Please review your transactions' ) );
 
 	// INSERT USER STATUS TYPE
    $table_name = $wpdb->prefix . "tbank_users_statustype";
-   $rows_affected = $wpdb->insert( $table_name, array( 'id' => '-1', 'type' => 'Deactivated' ) );   
-   $rows_affected = $wpdb->insert( $table_name, array( 'id' => '1', 'type' => 'Activated' ) ); 
-   $rows_affected = $wpdb->insert( $table_name, array( 'id' => '0', 'type' => 'Blocked' ) ); 
-   $rows_affected = $wpdb->insert( $table_name, array( 'id' => '-2', 'type' => 'Deleted' ) ); 
-       
+   $rows_affected = $wpdb->insert( $table_name, array( 'id' => '-1', 'type' => 'Deactivated' ) );
+   $rows_affected = $wpdb->insert( $table_name, array( 'id' => '1', 'type' => 'Activated' ) );
+   $rows_affected = $wpdb->insert( $table_name, array( 'id' => '0', 'type' => 'Blocked' ) );
+   $rows_affected = $wpdb->insert( $table_name, array( 'id' => '-2', 'type' => 'Deleted' ) );
+
 }
 
 function jal_uninstall() {
    global $wpdb;
-   
+
    // DROP SUPPORT TABLES (not data)
 
    // Provisional hasta resolver problema del foro wp insert
    $table_name = $wpdb->prefix . "tbank_conf";
    $wpdb->query("DROP TABLE IF EXISTS $table_name");
-   
+
    $table_name = $wpdb->prefix . "tbank_exchange_denegationtype";
    $wpdb->query("DROP TABLE IF EXISTS $table_name");
-   
+
    $table_name = $wpdb->prefix . "tbank_exchange_statustype";
    $wpdb->query("DROP TABLE IF EXISTS $table_name");
-   
+
    $table_name = $wpdb->prefix . "tbank_users_alerttype";
    $wpdb->query("DROP TABLE IF EXISTS $table_name");
-   
+
    $table_name = $wpdb->prefix . "tbank_users_statustype";
    $wpdb->query("DROP TABLE IF EXISTS $table_name");
 }

@@ -47,7 +47,16 @@ $config = getConfiguration();
 	if (isWpUser()){
 
 		// PRINT NEW REQUEST BUTTON
-		echo '<a href="#TB_inline?width=600&height=400&inlineId=showExchangeWindow" class="thickbox" style="padding: 8px; background-color: #ddd; float:right; margin-right:10px;">' . __('NEW EXCHANGE', 'timebank') . '</a>';
+		echo '
+	<script>
+
+	jQuery("#TB_window").css({marginLeft: \'-\' + parseInt((TB_WIDTH / 2),10) + \'px\', width: TB_WIDTH + \'px\'});
+	    if ( !(jQuery.browser.msie && jQuery.browser.version < 7)) { // take away IE6
+	        jQuery("#TB_window").css({marginTop: \'-\' + parseInt((TB_HEIGHT / 2),10) + \'px\'});
+	    }
+			</script>
+
+		<a href="#TB_inline?width=600&height=400&inlineId=showExchangeWindow" class="thickbox">' . __('NEW EXCHANGE', 'timebank') . '</a>';
 
 		// INCLUDE NEW REQUEST html + js code
 		include_once( 'new_exchange.php');

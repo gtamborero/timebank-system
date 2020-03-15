@@ -1,5 +1,5 @@
 /* TRANSACTION VIEW */
-.timebank th { background-color:#ddd; } 
+.timebank th { background-color:#ddd; }
 .timebank table { border:0px; }
 
 /* Border styles */
@@ -20,15 +20,16 @@
 .timebank .completed {background-color:#66CC33;}
 
 /* User stats */
-.timebank .userstats {float:left; background-color:#fff; padding:5px; margin:5px; font-weight:bold; }
+.timebank .userstats {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
+  width: 100%;
+}
 .timebank .userstats div{ float:left; padding:5px; margin-right:6px; background-color:#fff; border:1px #aaa solid; color:#777; margin-top:10px; font-weight:normal; }
 .timebank .userstats div:first-line { font-weight:bold; color:#222; }
-.timebank .widget .userstats {float:left; padding:5px; margin:0px; background-color:transparent; font-weight:bold; }
-.timebank .widget .userstats div{ float:left; margin-right:6px; background-color:#777; color:#EEE; margin-top:7px; font-weight:normal; }
-.timebank .widget .userstats div:first-line { font-weight:bold; color:#FFF; }
 
 /* BUTTON */
-.timebank .button { background-color:#ccc; border:1px solid #eee; padding:8px; min-width:100px; max-width:150px; }
+.timebank .button, .timebank .thickbox { text-align:center; background-color:#ccc; border:1px solid #eee; padding:8px; width:100%; display:block; box-sizing: border-box; }
 
 /* FANCY BOX */
 .timebank .fancytitle { color:#333333; font-size:20px; font-weight:bold; line-height:30px; }
