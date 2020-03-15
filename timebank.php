@@ -131,7 +131,7 @@ if (!is_admin()){
     	echo plugins_url( 'js/rateit/src/rateit.css', __FILE__ );
     	echo '" media="screen" />';
     }
-    
+
 }
 
 // SIDEBAR CREATION
@@ -196,14 +196,9 @@ bp_core_new_nav_item( array(
 
 // show feedback when 'Feedback’ tab is clicked
 function timebank_info() {
-
 bp_core_load_template( apply_filters( 'bp_core_template_plugin', 'members/single/plugins' ) );
 //tiene que ir detras este ad action. busca el bp_post template
-add_action( 'bp_template_content','timebank_exchange_view' );
-}
-
-function timebank_exchange_view() {
-    timebank_user_exchanges_view();
+add_action( 'bp_template_content','timebank_user_exchanges_view' );
 }
 
     // AJAX FUNCTIONS
