@@ -30,7 +30,7 @@
 		 * Blocks are grouped into categories to help users browse and discover them.
 		 * The categories provided by core are `common`, `embed`, `formatting`, `layout` and `widgets`.
 		 */
-		category: 'widgets',
+		category: 'embed',
 
 		/**
 		 * Optional block extended support features.
@@ -38,6 +38,8 @@
 		supports: {
 			// Removes support for an HTML mode.
 			html: false,
+			multiple:false,
+			reusable:false
 		},
 
 		/**
@@ -56,19 +58,6 @@
 			);
 		},
 
-		/**
-		 * The save function defines the way in which the different attributes should be combined
-		 * into the final markup, which is then serialized by Gutenberg into `post_content`.
-		 * @see https://wordpress.org/gutenberg/handbook/designers-developers/developers/block-api/block-edit-save/#save
-		 *
-		 * @return {Element}       Element to render.
-		 */
-		save: function() {
-			return el(
-				'p',
-				{}
-			);
-		}
 	} );
 } )(
 	window.wp
