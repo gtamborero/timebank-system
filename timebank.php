@@ -177,9 +177,6 @@ add_action( 'widgets_init', function() {
 );
 // SIDEBAR CREATION END
 
-//SHORT CODE CREATION
-add_shortcode('timebank_exchange', 'timebank_user_exchanges_view');
-
 //BUDDY PRESS HOOK
 add_action( 'bp_setup_nav', 'add_timebank_nav_tab' , 100 );
 function add_timebank_nav_tab() {
@@ -240,4 +237,5 @@ function timebank_load_textdomain() {
   load_plugin_textdomain( 'timebank', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
 }
 
+// CALL GUTENBERG BLOCK
 include_once( plugin_dir_path( __FILE__ ) . 'blocks/timebank.php');

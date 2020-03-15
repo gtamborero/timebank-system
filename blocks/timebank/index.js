@@ -66,8 +66,7 @@
 		save: function() {
 			return el(
 				'p',
-				{},
-				'[timebank_exchange]'
+				{}
 			);
 		}
 	} );
