@@ -23,6 +23,9 @@
 				<div class="clearboth"><?php _e('Description', 'timebank'); ?>: </div>
 				<div><input id="description" name="description" type="text" size="33" maxlength="37" /></div>
 
+        <div class="tbrequest clearboth" colspan="2" style="background-color:#FFFFFF;"><input id="TBREQUEST" class="tbcheck" type="submit" name="ACCEPT" value="<?php _e('Request', 'timebank'); ?>" /></div>
+        				<div class="tbsend clearboth" colspan="2" style="background-color:#FFFFFF;"><input id="TBSEND" class="tbcheck" type="submit" name="ACCEPT" value="<?php _e('Send', 'timebank'); ?>" /></div>
+                
 			</div>
 		</div>
 	</div>
