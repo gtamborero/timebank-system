@@ -13,6 +13,12 @@ Author URI: http://www.time-bank.info
 define( 'TB_PLUGIN_DIR', WP_PLUGIN_DIR . '/' . dirname( plugin_basename( __FILE__ ) ) );
 define( 'TB_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 
+
+function theme_scripts() {
+  wp_enqueue_script('jquery');
+}
+add_action('wp_enqueue_scripts', 'theme_scripts');
+
 // INSTALL HOOK when plugin is activated
 function timebank_install(){
 	include_once "admin/install.php";
