@@ -3,9 +3,9 @@
 <!-- classes tbrequest and tbsend are shown or hidden on click selection -->
 <div class="timebank">
     <div id="showExchangeWindow" style="display: none;">
+    <div class="TBoverlayClose"> X </div>
+
 		<div style="width:100%; position:relative; float:left;">
-			<div class="bigbutton"><a id="requestbutton"><?php _e('Request', 'timebank') ?> <?php echo $config->currency ?> ></a></div>
-			<div class="bigbutton"><a id="sendbutton"><?php _e('Send', 'timebank') ?> <?php echo $config->currency ?> ></a></div>
 
 			<div id="result"></div>
 			<input id="sellerUserId" class="tbrequest" name="sellerUserId" type="hidden" value="<?php echo $user = isWpUser(); ?>" />
@@ -60,7 +60,7 @@
 								}
 					})){
 						jQuery("#result").html("<center><?php _e('Please wait ...', 'timebank') ?> </center><br />").fadeOut().fadeIn();
-						setTimeout( function() { jQuery("#TBREQUEST, #TBSEND").show(); },5000);
+						setTimeout( function() { jQuery("#TBREQUEST, #TBSEND").show(); },3000);
 					}
 
             });
@@ -86,7 +86,7 @@
 						jQuery("#result").html("<center><?php _e('Please wait ...', 'timebank') ?></center><br />").fadeOut().fadeIn();
 						setTimeout( function() { jQuery("#TBREQUEST, #TBSEND").show(); },5000);
 					}
-				
+
             });
 
 			// Routine check on both forms
@@ -110,19 +110,6 @@
 
 			//button click actions
 			jQuery(".tbsend").addClass('hide');
-
-			jQuery('#requestbutton').click(function() {
-				jQuery(".tbrequest").addClass('show');
-				jQuery(".tbrequest").removeClass('hide');
-				jQuery(".tbsend").addClass('hide');
-				jQuery(".tbsend").removeClass('show');
-			});
-			jQuery('#sendbutton').click(function() {
-				jQuery(".tbrequest").addClass('hide');
-				jQuery(".tbrequest").removeClass('show');
-				jQuery(".tbsend").addClass('show');
-				jQuery(".tbsend").removeClass('hide');
-			});
 
         });
         </script>

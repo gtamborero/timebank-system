@@ -6,6 +6,7 @@ error_reporting( E_ERROR | E_WARNING | E_PARSE );
 global $bp; //BuddyPress global
 
 include_once( plugin_dir_path( __FILE__ ) . '../common/includes.php');
+include_once( plugin_dir_path( __FILE__ ) . 'exchange_buttons.php');
 
 $config = getConfiguration();
 
@@ -47,8 +48,8 @@ $config = getConfiguration();
 	if (isWpUser()){
 
 		// PRINT NEW REQUEST BUTTON
-		echo '
-		<a href="#TB_inline?width=600&height=400&inlineId=showExchangeWindow" class="thickbox">' . __('NEW EXCHANGE', 'timebank') . '</a>';
+		echo '<a onclick="showExchangeWindow()" class="button">
+		' . __('NEW EXCHANGE', 'timebank') . '</a>';
 
 		// INCLUDE NEW REQUEST html + js code
 		include_once( 'new_exchange.php');
@@ -77,6 +78,19 @@ $config = getConfiguration();
 								jQuery("#tbReceived").html(html + "<br />");
 						}
 				});
+		});
+
+		function showExchangeWindow(){
+			jQuery('#showExchangeWindow').parents('.timebank').addClass('TBoverlay');
+			jQuery('#showExchangeWindow').show();
+
+		}
+
+
+		jQuery('.TBoverlayClose').click(function(){
+			jQuery('.timebank').removeClass('TBoverlay');
+			jQuery('#showExchangeWindow').hide();
+
 		});
 	</script>
 	<?php } ?>
