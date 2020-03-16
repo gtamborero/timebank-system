@@ -47,9 +47,6 @@ function timebank_block_init() {
 		filemtime( "$dir/$style_css" )
 	);
 
-	//SHORT CODE CREATION inside block
-	add_shortcode('timebank_exchange', 'timebank_user_exchanges_view');
-
 	register_block_type( 'timebank-system/timebank', array(
 		'editor_script' => 'timebank-block-editor',
 		'editor_style'  => 'timebank-block-editor',
