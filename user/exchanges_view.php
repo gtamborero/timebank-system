@@ -14,17 +14,16 @@ $config = getConfiguration();
 	if ($_GET['user']!=""){
 		$user = $_GET['user'];
 	}else{
-            $current_user = wp_get_current_user();
-            $user = $current_user->user_login;
-            //IF buddy
-            if(isset($bp)){
-                if (bp_get_displayed_user_username()) $user = bp_get_displayed_user_username();
-            }
+      $current_user = wp_get_current_user();
+      $user = $current_user->user_login;
+      //IF buddy
+      if(isset($bp)){
+          if (bp_get_displayed_user_username()) $user = bp_get_displayed_user_username();
+      }
 	}
 	//get user ID
 	$userId = get_user_by( 'login', $user);
 	$userId = (string) $userId->ID;
-	$pathToTimebank = pathToTimebank();
 	$username = "";
 
 	$userData = getUserData ($userId);
@@ -47,15 +46,15 @@ $config = getConfiguration();
 	//print button NEW REQUEST + show tables if user is logged in
 	if (isWpUser()){
 
-		// PRINT NEW REQUEST BUTTON
-		echo '<a onclick="showExchangeWindow()" class="button">
-		' . __('NEW EXCHANGE', 'timebank') . '</a>';
-
 		// INCLUDE NEW REQUEST html + js code
 		include_once( 'new_exchange.php');
 
-		echo '<div id="tbGiven" class="blink">Loading Given ' . $config->currency . ' <img src="' . TB_PLUGIN_URL . '/img/loading.gif" style="width:70px;"></div>';
-		echo '<div id="tbReceived" class="blink">Loading Received ' . $config->currency . ' <img src="' . TB_PLUGIN_URL . '/img/loading.gif" style="width:70px;"></div>';
+		echo '<div id="tbGiven" class="blink">
+		<center>Loading <br>
+		<img src="' . TB_PLUGIN_URL . '/img/loading.gif" style="width:70px;">
+		</center>
+		</div>';
+		echo '<div id="tbReceived" ></div>';
 	?>
 	<script type="text/javascript">
 		jQuery(document).ready(function(){
@@ -80,20 +79,8 @@ $config = getConfiguration();
 				});
 		});
 
-		function showExchangeWindow(){
-			jQuery('#showExchangeWindow').parents('.timebank').addClass('TBoverlay');
-			jQuery('#showExchangeWindow').show();
-
-		}
-
-
-		jQuery('.TBoverlayClose').click(function(){
-			jQuery('.timebank').removeClass('TBoverlay');
-			jQuery('#showExchangeWindow').hide();
-
-		});
 	</script>
 	<?php } ?>
+	
 </div>
-
 </div>

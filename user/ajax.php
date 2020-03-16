@@ -59,7 +59,7 @@ function ajax_list_given_exchanges(){
 	$result = purchaseView ($userId);
 
 	echo '<div class="buys">';
-	echo '<br /><br /><font style="font-size:16px;"><strong>' . __('Time Given', 'timebank') . '</strong></font>';
+	echo '<br /><div style="font-size:20px; margin-bottom:15px; text-align:center;"><strong>' . __('Time Given', 'timebank') . '</strong></div>';
 	echo '<table style="background-color:#fff; width:99%;">';
 	echo "<th>" . __('Date', 'timebank') . "</th>";
 	echo "<th>" . __('Recipient', 'timebank') . "</th>";
@@ -129,7 +129,7 @@ function ajax_list_received_exchanges(){
 	$result = salesView ($userId);
 
 	echo '<div class="sales">';
-	echo '<font style="font-size:16px;"><strong>' . __('Time Received', 'timebank') . '</strong></font>';
+	echo '<div style="font-size:20px; margin-bottom:15px; text-align:center;"><strong>' . __('Time Received', 'timebank') . '</strong></div>';
 	echo '<table style="background-color:#fff; width:99%;">';
 	echo "<th>" . __('Date', 'timebank') . "</th>";
 	echo "<th>" . __('Sender', 'timebank') . "</th>";

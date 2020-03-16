@@ -35,10 +35,18 @@
 }
 
 /* BUTTON */
-.timebank .button, .timebank .thickbox { text-align:center; background-color:#ccc; border:1px solid #eee; padding:8px; width:100%; display:block; box-sizing: border-box; }
+.timebank .button { cursor:pointer; text-align:center; background-color:#aaa; padding:8px; width:100%; display:block; box-sizing: border-box; }
 
-/* FANCY BOX */
-.timebank .fancytitle { color:#333333; font-size:20px; font-weight:bold; line-height:30px; }
+/* FIXED BUTTONS */
+.timebank .fixedbuttons {
+  position:fixed;
+  display:block;
+  bottom:0;
+  width: 100%;
+  left:0;
+  right:0;
+  z-index: 999;
+}
 
 /* HIDE AND SHOW */
 .hide {display:none;}
@@ -49,10 +57,38 @@
 /* POPUP NEW EXCHANGE */
 #popupexchange div {float:left; padding:2%; background-color:#f5f5f5; margin:0.2%; width:49.5%; height:60px;}
 .clearboth {clear:both;}
-.bigbutton { background-color:#000; padding:2%; float:left; margin:0.2%; width:49.5%; text-align:center; }
+.bigbutton { background-color:#000; padding:15px; float:left; width:50%; text-align:center; }
 .bigbutton a{ color:#e5e5e5;}
 .bigbutton a:hover{ color:#fff; cursor:pointer; text-decoration:none;}
 
 #popupexchange input {padding:4%;}
 #popupexchange input#amount {width:30% !important;}
 #popupexchange div, .bigbutton {    box-sizing: border-box;}
+
+#showExchangeWindow {
+  position: fixed;
+  width:90%;
+  top:90px;
+  left:5%;
+  background-color: #fff;
+  border:1px solid #666;
+}
+
+.TBoverlay {
+  display: block;
+  position: fixed;
+  width:100%;
+  top:0;
+  bottom:0;
+  left:0;
+  right: 0;
+  background: rgba(0,0,0,0.9);
+  z-index:9999;
+}
+
+.TBoverlayClose{
+  text-align:right; font-weight: bold; float:right;
+  padding:7px 16px; margin:5px; margin-right:0px; color:#fff; background:#000; cursor: pointer;
+  display: inline-block;
+  border:1px solid #fff;
+}
