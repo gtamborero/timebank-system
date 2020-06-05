@@ -193,5 +193,8 @@ function timebank_load_textdomain() {
   load_plugin_textdomain( 'timebank', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
 }
 
+//SHORT CODE CREATION inside block
+add_shortcode('timebank_exchange', 'timebank_user_exchanges_view');
+
 // CALL GUTENBERG BLOCK
 include_once( plugin_dir_path( __FILE__ ) . 'blocks/timebank.php');
